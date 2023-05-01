@@ -15,6 +15,8 @@ func main() {
 	list2 := linkedlist.NewLinkedList[int]()
 	list2.InsertAt(2, list2.Size())
 	list2.InsertAt(4, list2.Size())
+	list2.InsertAt(6, list2.Size())
+	list2.InsertAt(8, list2.Size())
 	result := funciones.Intercalar(list, list2)
 	fmt.Printf("%v", result)
 }

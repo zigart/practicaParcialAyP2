@@ -14,11 +14,21 @@ func Intercalar[T comparable](l1, l2 *linkedlist.LinkedList[T]) *linkedlist.Link
 
 	newList := linkedlist.NewLinkedList[T]()
 
-	for i := 0; i < l1.Size(); i++ {
-		liValue := l1.Get(i)
-		newList.InsertAt(liValue, newList.Size())
-		if i < l2.Size() && !l2.IsEmpty() {
-			newList.InsertAt(l2.Get(i), newList.Size())
+	if l1.Size() > l2.Size() {
+		for i := 0; i < l1.Size(); i++ {
+			liValue := l1.Get(i)
+			newList.InsertAt(liValue, newList.Size())
+			if i < l2.Size() && !l2.IsEmpty() {
+				newList.InsertAt(l2.Get(i), newList.Size())
+			}
+		}
+	} else {
+		for i := 0; i < l2.Size(); i++ {
+			liValue := l2.Get(i)
+			newList.InsertAt(liValue, newList.Size())
+			if i < l1.Size() && !l1.IsEmpty() {
+				newList.InsertAt(l1.Get(i), newList.Size())
+			}
 		}
 	}
 
